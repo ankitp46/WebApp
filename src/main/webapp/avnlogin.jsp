@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+package servlet;
+
+import java.io.IOException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 <head>
@@ -203,6 +207,10 @@ The Mars Help Desk, can assist with issues and concerns regarding:
   <div class="toggle">
    </div>
     <div class="form">
+	<% String msg=(String) request.getAttribute("successMessage");
+				if(!(msg==null)){%>
+				<p align="center" style="color: green; font-weight: bold; font-size: 18px;"> <%=msg %></p>
+				<%;} %>
     <h2>Login to your account</h2>
     <form action="avnlogin" method="post">
       <input type="text" name="username" placeholder="Username"/>
@@ -211,6 +219,7 @@ The Mars Help Desk, can assist with issues and concerns regarding:
     </form>
   </div>
    <div class="cta"><a href="">Forgot your password?</a></div>
+   <div class="cta"><a href="avnregister.jsp">Sign Up?</a></div>
    </div>
    <p class="text-center">
    <span id="fullyear">2017</span>
