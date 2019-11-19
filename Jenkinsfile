@@ -6,7 +6,7 @@ node {
     def buildInfo
 
     stage('Clone sources') {
-        git url: 'https://github.com/duorg/webapp.git'
+        git url: 'https://github.com/ankitp46/webapp.git'
     }
 
     stage('Artifactory configuration') {
@@ -25,7 +25,7 @@ node {
         server.publishBuildInfo buildInfo
     }
 
-	stage('SonarQube analysis') { 
+	/*stage('SonarQube analysis') { 
         withSonarQubeEnv('sonar') { 
           sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
           '-f all/pom.xml ' +
@@ -37,6 +37,6 @@ node {
           '-Dsonar.tests=. ' +
           '-Dsonar.test.inclusions=**/test/java/servlet/createpage_junit.java ' +
           '-Dsonar.exclusions=**/test/java/servlet/createpage_junit.java'
-        }
-    }
+        } 
+    } */
     }
